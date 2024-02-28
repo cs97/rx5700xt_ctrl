@@ -50,7 +50,7 @@ fn set_vc(mode: &str) -> std::io::Result<()> {
 		},
 
 		_ => {
-			println!("Usage: AlderLakeCtrl [OPTION]\n
+			println!("Usage: rx5700xt_ctrl [OPTION]\n
 			\n\tOptions:
 			\n\tmax\t\tset GPU to 1900Mhz 1001mV
 			\n\teco\t\tset GPU to 1700MHz  875mV
