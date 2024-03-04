@@ -3,7 +3,7 @@ use std::env;
 use std::fs::File;
 use std::io::prelude::*;
 
-const PATH: &str = "/sys/class/drm/card0/device/";
+const PATH: &str = "/sys/class/drm/card0/device/pp_od_clk_voltage";
 
 // OD_VDDC_CURVE:
 const VC_1_MHZ: &str = "1417";
@@ -17,9 +17,7 @@ const MAX_VC_2_MV: &str = "1001";
 
 fn set_vc(mode: &str) -> std::io::Result<()> {
 
-	let mut path = String::from(PATH);
-	path.push_str("pp_od_clk_voltage");
-    let mut file = File::create(path)?;
+    	let mut file = File::create(PATH)?;
 
 	let vc_1: String;
 	let vc_2: String;
@@ -49,14 +47,7 @@ fn set_vc(mode: &str) -> std::io::Result<()> {
 			max_freq = MAX_VC_2_MHZ;
 		},
 
-		_ => {
-			println!("Usage: rx5700xt_ctrl [OPTION]\n
-			\n\tOptions:
-			\n\tmax\t\tset GPU to 1900Mhz 1001mV
-			\n\teco\t\tset GPU to 1700MHz  875mV
-    		");
-			return Ok(())
-		},
+		_ => return Ok(()),
 	}
 
 
@@ -76,14 +67,42 @@ fn set_vc(mode: &str) -> std::io::Result<()> {
 	Ok(())
 }
 
+fn print_help() {
+		println!("Usage: rx5700xt_ctrl [OPTION]\n
+		\n\tOptions:
+		\n\tmax\t\tset GPU to 1900Mhz 1001mV
+		\n\teco\t\tset GPU to 1700MHz  875mV
+    	");
+
+}
+
 fn main() -> std::io::Result<()> {
 
 	let args: Vec<String> = env::args().collect();
 
 	if args.len() < 2 {
-		set_vc("--help")?;
+		print_help();
+		return Ok(())
+
 	} else {
-		set_vc(&args[1])?;
+
+		let arg: &str = &args[1];
+		match arg {
+
+			"eco"|"max" => set_vc(&args[1])?,
+
+			"info" => {
+				let info = fs::read_to_string(PATH).expect("Cannot read file");
+				println!("{}", info);
+				return Ok(())
+			},
+
+			_ => {
+				print_help();
+				return Ok(())
+			},
+
+		}
 	}
 
 	Ok(())
