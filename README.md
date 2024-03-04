@@ -2,8 +2,9 @@
 ```
 Usage: rx5700xt_ctrl [OPTION]
 	Options:
-	max		set GPU to 1900Mhz 985mV
-	eco		set GPU to 1700MHz 875mV
+	oc		set GPU to 2000Mhz 1050mV
+	max		set GPU to 1900Mhz  985mV
+	eco		set GPU to 1700MHz  875mV
 ```
 
 ### my rx 5700 xt VDDC_CURVE

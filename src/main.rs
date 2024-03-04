@@ -16,6 +16,9 @@ const ECO_VC_2_MV: &str = "875";
 const MAX_VC_2_MHZ: &str = "1900";
 const MAX_VC_2_MV: &str = "985";
 
+const OC_VC_2_MHZ: &str = "2000";
+const OC_VC_2_MV: &str = "1050";
+
 fn set_vc(mode: &str) -> std::io::Result<()> {
 
     	let mut file = File::create(PATH)?;
@@ -48,6 +51,17 @@ fn set_vc(mode: &str) -> std::io::Result<()> {
 			max_freq = MAX_VC_2_MHZ;
 		},
 
+		"oc" => {
+			// build vc
+			vc_1 = format!("vc 1 {} {}", VC_1_MHZ, VC_1_MV);
+
+			// build vc
+			vc_2 = format!("vc 2 {} {}", OC_VC_2_MHZ, OC_VC_2_MV);
+
+			// max freq
+			max_freq = OC_VC_2_MHZ;
+		},
+
 		_ => return Ok(()),
 	}
 
@@ -71,8 +85,9 @@ fn set_vc(mode: &str) -> std::io::Result<()> {
 fn print_help() {
 		println!("Usage: rx5700xt_ctrl [OPTION]\n
 		\n\tOptions:
-		\n\tmax\t\tset GPU to 1900Mhz 985mV
-		\n\teco\t\tset GPU to 1700MHz 875mV
+		\n\toc\t\tset GPU to 2000Mhz 1050mV
+		\n\tmax\t\tset GPU to 1900Mhz  985mV
+		\n\teco\t\tset GPU to 1700MHz  875mV
     	");
 
 }
