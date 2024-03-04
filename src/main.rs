@@ -13,7 +13,7 @@ const ECO_VC_2_MHZ: &str = "1700";
 const ECO_VC_2_MV: &str = "875";
 
 const MAX_VC_2_MHZ: &str = "1900";
-const MAX_VC_2_MV: &str = "1001";
+const MAX_VC_2_MV: &str = "975";
 
 fn set_vc(mode: &str) -> std::io::Result<()> {
 
