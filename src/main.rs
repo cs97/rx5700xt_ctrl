@@ -14,7 +14,7 @@ const ECO_VC_2_MHZ: &str = "1700";
 const ECO_VC_2_MV: &str = "875";
 
 const MAX_VC_2_MHZ: &str = "1900";
-const MAX_VC_2_MV: &str = "975";
+const MAX_VC_2_MV: &str = "985";
 
 fn set_vc(mode: &str) -> std::io::Result<()> {
 
@@ -71,7 +71,7 @@ fn set_vc(mode: &str) -> std::io::Result<()> {
 fn print_help() {
 		println!("Usage: rx5700xt_ctrl [OPTION]\n
 		\n\tOptions:
-		\n\tmax\t\tset GPU to 1900Mhz 975mV
+		\n\tmax\t\tset GPU to 1900Mhz 985mV
 		\n\teco\t\tset GPU to 1700MHz 875mV
     	");
 
