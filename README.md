@@ -29,3 +29,17 @@ OD_VDDC_CURVE:
 1900MHz 985mV
 2000MHz 1050mV
 ```
+
+/etc/systemd/system/rx5700_ctrl.service
+```
+[Unit]
+Description=rx5700_ctrl
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rx5700_ctrl eco
+ExecStop=/usr/bin/rx5700_ctrl max
+
+[Install]
+WantedBy=multi-user.target
+```
