@@ -43,3 +43,12 @@ ExecStop=/usr/bin/rx5700_ctrl max
 [Install]
 WantedBy=multi-user.target
 ```
+```
+systemctl daemon-reload
+```
+```
+systemctl enable rx5700_ctrl.service
+```
+```
+systemctl start rx5700_ctrl.service
+```
