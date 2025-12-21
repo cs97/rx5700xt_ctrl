@@ -76,3 +76,9 @@ echo "auto" > /sys/class/drm/card1/device/power_dpm_force_performance_level
 ```
 echo "profile_peak" > /sys/class/drm/card1/device/power_dpm_force_performance_level 
 ```
+
+### on alpine linux change card0 to card1
+```
+/sys/class/drm/card1/device/pp_od_clk_voltage
+```
+
