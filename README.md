@@ -30,6 +30,13 @@ OD_VDDC_CURVE:
 2000MHz 1050mV
 ```
 ### install
+/etc/default/grub
+```
+GRUB_CMDLINE_LINUX_DEFAULT="... amdgpu.ppfeaturemask=0xffffffff"
+```
+```
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
 ```
 cargo build --release
 ```
@@ -58,4 +65,14 @@ systemctl enable rx5700_ctrl.service
 ```
 ```
 systemctl start rx5700_ctrl.service
+```
+
+### auto sclk & mclk clock
+```
+echo "auto" > /sys/class/drm/card1/device/power_dpm_force_performance_level 
+```
+
+### max sclk & mclk clock
+```
+echo "profile_peak" > /sys/class/drm/card1/device/power_dpm_force_performance_level 
 ```
