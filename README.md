@@ -29,6 +29,13 @@ OD_VDDC_CURVE:
 1900MHz 985mV
 2000MHz 1050mV
 ```
+### install
+```
+cargo build --release
+```
+```
+doas cp target/release/rx5700xt_ctrl /usr/bin/
+```
 
 /etc/systemd/system/rx5700_ctrl.service
 ```
