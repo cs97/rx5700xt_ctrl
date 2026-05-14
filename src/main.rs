@@ -100,7 +100,7 @@ fn main() -> std::io::Result<()> {
 		let arg: &str = &args[1];
 		match arg {
 
-			"eco"|"max"|"oc" => set_vc(&args[1])?,
+			"eco"|"low"|"high"|"oc" => set_vc(&args[1])?,
 
 			"info" => {
 				let info = fs::read_to_string(PATH).expect("Cannot read file");
