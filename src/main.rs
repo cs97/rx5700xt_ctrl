@@ -47,7 +47,7 @@ fn set_vc(mode: &str) -> std::io::Result<()> {
 		"high" => {
 			vc_1 = format!("vc 1 {} {}", VC_1_MHZ, VC_1_MV);
 			vc_2 = format!("vc 2 {} {}", HIGH_VC_2_MHZ, HIGH_VC_2_MV);
-			max_freq = MAX_VC_2_MHZ;
+			max_freq = HIGH_VC_2_MHZ;
 		},
 
 		"oc" => {
