@@ -28,6 +28,7 @@ OD_VDDC_CURVE:
 1700MHz 875mV
 1900MHz 985mV
 2000MHz 1050mV
+2150MHZ 1125mV
 ```
 ### install
 /etc/default/grub
