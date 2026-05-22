@@ -20,7 +20,7 @@ const HIGH_VC_2_MHZ: &str = "2000";
 const HIGH_VC_2_MV: &str = "1050";
 
 const OC_VC_2_MHZ: &str = "2100";
-const OC_VC_2_MV: &str = "1100";
+const OC_VC_2_MV: &str = "1125";
 
 fn set_vc(mode: &str) -> std::io::Result<()> {
 
